@@ -1,0 +1,211 @@
+.generic-payment-form {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.generic-payment-form .form-row {
+    margin-bottom: 15px;
+}
+
+.generic-payment-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.generic-payment-form input[type="text"],
+.generic-payment-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.generic-payment-form button {
+    margin-top: 10px;
+}
+
+.generic-payment-form .success {
+    color: green;
+    margin-top: 10px;
+}
+
+.generic-payment-form .error {
+    color: red;
+    margin-top: 10px;
+}
+
+.generic-payment-form .gateway-login-btn {
+    margin-top: 20px;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.generic-payment-form .button-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.generic-payment-form .signup-link {
+    color: #2271b1;
+    text-decoration: none;
+}
+
+.generic-payment-form .signup-link:hover {
+    text-decoration: underline;
+}
+
+.payment-instructions {
+    margin: 25px 0;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+}
+
+.payment-instructions p {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.payment-instructions ol {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: steps;
+}
+
+.payment-instructions li {
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    padding-left: 35px;
+    position: relative;
+    counter-increment: steps;
+}
+
+.payment-instructions li::before {
+    content: counter(steps);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: #666;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.payment-instructions li:last-child {
+    margin-bottom: 0;
+}
+
+.generic-payment-form > p:first-child {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#gateway-logout-btn {
+    margin-top: 25px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+}
+
+#gateway-logout-btn:hover {
+    background: #e5e5e5;
+}
+
+.payment-button-container {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.payment-button-container button {
+    margin-top: 10px;
+    font-size: 18px;
+    padding: 16px 32px;
+    background-color: #2271b1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.payment-button-container button:hover {
+    background-color: #135e96;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    animation: none;
+}
+
+.payment-button-container p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(34, 113, 177, 0.7);
+    }
+    
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(34, 113, 177, 0);
+    }
+    
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(34, 113, 177, 0);
+    }
+}
+
+.generic-payment-form .account-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.generic-payment-form .link-separator {
+    color: #666;
+}
+
+.generic-payment-form .reset-password-link {
+    color: #2271b1;
+    text-decoration: none;
+}
+
+.generic-payment-form .reset-password-link:hover {
+    text-decoration: underline;
+}
