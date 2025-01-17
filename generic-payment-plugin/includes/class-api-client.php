@@ -24,6 +24,7 @@ class Generic_Payment_Gateway_API_Client {
      * @param string $account_uuid Account UUID from gateway settings
      */
     public function __construct($client_id, $client_secret, $api_endpoint, $account_uuid) {
+		/* echo 'api_endpoint '.$api_endpoint; die; */
         $this->client_id = $client_id;
         $this->client_secret = $client_secret;
         $this->api_endpoint = rtrim($api_endpoint, '/');
@@ -35,6 +36,7 @@ class Generic_Payment_Gateway_API_Client {
      * Load saved token from WordPress options
      */
     private function load_token() {
+		
         $token_data = get_option($this->token_option_name);
         if ($token_data) {
             $this->access_token = $token_data['access_token'];
@@ -78,6 +80,7 @@ class Generic_Payment_Gateway_API_Client {
      */
     public function get_base_url() {
         $parsed_url = parse_url($this->api_endpoint);
+		
         return $parsed_url['scheme'] . '://' . $parsed_url['host'] . 
                (isset($parsed_url['port']) ? ':' . $parsed_url['port'] : '');
     }
@@ -94,7 +97,8 @@ class Generic_Payment_Gateway_API_Client {
 
         $base_url = $this->get_base_url();
         $endpoint = $base_url . '/oauth/token';
-
+		
+		
         $response = wp_remote_post($endpoint, [
             'headers' => [
                 'Content-Type' => 'application/json',
@@ -164,12 +168,16 @@ class Generic_Payment_Gateway_API_Client {
             'currency' => 'CAD',
             'description' => sprintf('Order #%s', $order->get_order_number())
         ];
+		
+		echo "<pre> body"; print_r($body); 
 
         $response = wp_remote_post($endpoint, [
             'headers' => $headers,
             'body' => json_encode($body),
             'timeout' => 30,
         ]);
+		
+		echo "<pre> response"; print_r($response); 
 
         if (is_wp_error($response)) {
             return $response;
@@ -178,7 +186,7 @@ class Generic_Payment_Gateway_API_Client {
         $response_body = wp_remote_retrieve_body($response);
         
         $data = json_decode($response_body, true);
-
+echo "<pre> data"; print_r($data); die;
         if (json_last_error() !== JSON_ERROR_NONE) {
             return new WP_Error('invalid_response', 'Invalid response from payment gateway: ' . json_last_error_msg());
         }
